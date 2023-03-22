@@ -11,10 +11,9 @@ export interface DotProps {
   disabled?: boolean;
   inactive?: boolean;
   today?: boolean;
-  customStyle?: object;
 }
 
-const Dot = ({theme, marked, disabled, inactive, color, today, selected, customStyle}: DotProps) => {
+const Dot = ({theme, marked, disabled, inactive, color, today, selected}: DotProps) => {
   const style = useRef(styleConstructor(theme));
   const dotStyle = [style.current.dot] as object[];
 
@@ -39,9 +38,6 @@ const Dot = ({theme, marked, disabled, inactive, color, today, selected, customS
 
     if (color) {
       dotStyle.push({backgroundColor: color});
-    }
-    if (customStyle && typeof customStyle ===  "object") {
-      dotStyle.push({...customStyle});
     }
   }
 
